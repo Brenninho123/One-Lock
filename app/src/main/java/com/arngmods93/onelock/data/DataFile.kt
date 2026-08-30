@@ -10,13 +10,15 @@ import java.io.IOException
 
 class DataFile(private val context: Context) {
 
-    private val json = Json {
+    @PublishedApi
+    internal val json = Json {
         prettyPrint = true
         ignoreUnknownKeys = true
         encodeDefaults = true
     }
 
-    private fun fileFor(name: String): File {
+    @PublishedApi
+    internal fun fileFor(name: String): File {
         return File(context.filesDir, name)
     }
 
