@@ -1,51 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">One Lock</string>
-    <string name="app_tagline">Catálogo de módulos Good Lock</string>
+    <string name="app_tagline">Good Lock module catalog</string>
 
-    <!-- Home -->
-    <string name="search_placeholder">Buscar módulo, package o categoría…</string>
-    <string name="no_results">No se encontraron módulos.</string>
-    <string name="all_categories">Todas</string>
+    <string name="search_placeholder">Search module, package or category…</string>
+    <string name="no_results">No modules found.</string>
+    <string name="all_categories">All</string>
 
-    <!-- Module card / details -->
-    <string name="open_download_page">Abrir página de descarga</string>
-    <string name="module_installed">Instalado</string>
-    <string name="module_not_installed">No instalado · Tocar para descargar</string>
-    <string name="min_android">Android mínimo</string>
-    <string name="supported_one_ui">One UI compatible</string>
+    <string name="category_personalization">Personalization</string>
+    <string name="category_lockscreen">Lock screen</string>
+    <string name="category_navigation_bar">Navigation bar</string>
+    <string name="category_notifications">Notifications</string>
+    <string name="category_keyboard">Keyboard</string>
+    <string name="category_camera">Camera</string>
+    <string name="category_multitasking">Multitasking</string>
+    <string name="category_system">System</string>
+    <string name="category_other">Other</string>
+
+    <string name="open_download_page">Open download page</string>
+    <string name="module_installed">Installed</string>
+    <string name="module_not_installed">Not installed · Tap to download</string>
+    <string name="min_android">Minimum Android</string>
+    <string name="supported_one_ui">Supported One UI</string>
     <string name="package_name">Package</string>
-    <string name="category_label">Categoría</string>
-    <string name="compatibility_label">Compatibilidad</string>
+    <string name="category_label">Category</string>
+    <string name="compatibility_label">Compatibility</string>
 
-    <!-- Compatibility -->
     <string name="compat_compatible">Compatible</string>
-    <string name="compat_unknown">Compatibilidad desconocida</string>
-    <string name="compat_incompatible">Posiblemente incompatible</string>
+    <string name="compat_unknown">Unknown compatibility</string>
+    <string name="compat_incompatible">Possibly incompatible</string>
 
-    <!-- Device info -->
-    <string name="device_info_title">Tu dispositivo</string>
-    <string name="device_manufacturer">Fabricante</string>
-    <string name="device_model">Modelo</string>
+    <string name="device_info_title">Your device</string>
+    <string name="device_manufacturer">Manufacturer</string>
+    <string name="device_model">Model</string>
     <string name="device_android">Android</string>
     <string name="device_one_ui">One UI</string>
-    <string name="one_ui_unknown">No detectado</string>
+    <string name="one_ui_unknown">Not detected</string>
 
-    <!-- Errors -->
-    <string name="error_no_browser">No se encontró ningún navegador compatible en este dispositivo.</string>
-    <string name="error_invalid_url">Este módulo no tiene una URL de descarga válida.</string>
+    <string name="error_no_browser">No compatible browser was found on this device.</string>
+    <string name="error_invalid_url">This module doesn\'t have a valid download URL.</string>
+    <string name="error_blocked_scheme">This link uses an unsupported protocol.</string>
+    <string name="error_generic">Something went wrong opening this link.</string>
 
-    <!-- Navigation -->
-    <string name="nav_home">Inicio</string>
-    <string name="nav_settings">Ajustes</string>
+    <string name="nav_home">Home</string>
+    <string name="nav_settings">Settings</string>
 
-    <!-- Settings -->
-    <string name="settings_about_title">Acerca de One Lock</string>
-    <string name="settings_about_body">One Lock es un catálogo independiente que ayuda a encontrar y acceder a los módulos de Samsung Good Lock. La app no aloja, modifica ni redistribuye ningún APK: solo enlaza a páginas de descarga externas.</string>
-    <string name="settings_version">Versión</string>
-    <string name="settings_repository">Repositorio en GitHub</string>
-    <string name="settings_disclaimer_title">Aviso legal</string>
-    <string name="settings_disclaimer_body">One Lock es un proyecto independiente y no está afiliado, respaldado ni patrocinado por Samsung Electronics o Good Lock. Good Lock y sus módulos pertenecen a sus respectivos propietarios. One Lock únicamente proporciona información y enlaces externos hacia las páginas correspondientes.</string>
-    <string name="settings_compat_title">Sobre la compatibilidad</string>
-    <string name="settings_compat_body">Los estados de compatibilidad son orientativos y se basan en la versión mínima de Android indicada por cada módulo. Consulta siempre la página de descarga oficial antes de instalar cualquier módulo.</string>
+    <string name="settings_about_title">About One Lock</string>
+    <string name="settings_about_body">One Lock is an independent catalog that helps you find and access Samsung Good Lock modules. The app doesn\'t host, modify, or redistribute any APK — it only links to external download pages.</string>
+    <string name="settings_version">Version</string>
+    <string name="settings_build">Build</string>
+    <string name="settings_repository">GitHub repository</string>
+    <string name="settings_report_issue">Report an issue</string>
+    <string name="settings_license">License</string>
+    <string name="settings_disclaimer_title">Legal disclaimer</string>
+    <string name="settings_disclaimer_body">One Lock is an independent project and is not affiliated with, endorsed by, or sponsored by Samsung Electronics or Good Lock. Good Lock and its modules belong to their respective owners. One Lock only provides information and external links to the corresponding pages.</string>
+    <string name="settings_compat_title">About compatibility</string>
+    <string name="settings_compat_body">Compatibility status is indicative and based on the minimum Android version reported by each module. Always check the official download page before installing any module.</string>
 </resources>
