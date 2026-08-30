@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--
+        One Lock never downloads or installs anything itself.
+        It only needs to be able to launch the user's default browser
+        via an explicit ACTION_VIEW intent (queries block below, required
+        on Android 11+ due to package visibility restrictions).
+    -->
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.VIEW" />
+            <category android:name="android.intent.category.BROWSABLE" />
+            <data android:scheme="https" />
+        </intent>
+        <package android:name="com.samsung.android.goodlock" />
+        <package android:name="com.samsung.android.themedesigner" />
+        <package android:name="com.samsung.android.wonderland" />
+        <package android:name="com.samsung.android.app.clockface" />
+        <package android:name="com.samsung.android.goodlock.lockscreen" />
+        <package android:name="com.samsung.android.app.nicecatch" />
+        <package android:name="com.samsung.android.navstar" />
+        <package android:name="com.samsung.android.qstuner" />
+        <package android:name="com.samsung.android.keyscafe" />
+        <package android:name="com.samsung.android.app.cameraassistant" />
+        <package android:name="com.samsung.android.multistar" />
+        <package android:name="com.samsung.android.app.taskchanger" />
+        <package android:name="com.samsung.android.app.homestar" />
+        <package android:name="com.samsung.android.app.regiStar" />
+        <package android:name="com.samsung.android.soundassistant" />
+        <package android:name="com.samsung.android.edgetouch" />
+    </queries>
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.OneLock"
+        tools:targetApi="34">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme.OneLock">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

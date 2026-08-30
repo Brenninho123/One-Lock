@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ol_blue_primary">#5B8DEF</color>
+    <color name="ol_blue_dark">#3A65C0</color>
+    <color name="ol_navy_background">#101226</color>
+    <color name="ol_surface">#1B1F3B</color>
+    <color name="ol_green_compatible">#2ECC71</color>
+    <color name="ol_amber_unknown">#F5A623</color>
+    <color name="ol_red_incompatible">#E74C3C</color>
+</resources>

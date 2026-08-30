@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">One Lock</string>
+    <string name="app_tagline">Catálogo de módulos Good Lock</string>
+
+    <!-- Home -->
+    <string name="search_placeholder">Buscar módulo, package o categoría…</string>
+    <string name="no_results">No se encontraron módulos.</string>
+    <string name="all_categories">Todas</string>
+
+    <!-- Module card / details -->
+    <string name="open_download_page">Abrir página de descarga</string>
+    <string name="module_installed">Instalado</string>
+    <string name="module_not_installed">No instalado · Tocar para descargar</string>
+    <string name="min_android">Android mínimo</string>
+    <string name="supported_one_ui">One UI compatible</string>
+    <string name="package_name">Package</string>
+    <string name="category_label">Categoría</string>
+    <string name="compatibility_label">Compatibilidad</string>
+
+    <!-- Compatibility -->
+    <string name="compat_compatible">Compatible</string>
+    <string name="compat_unknown">Compatibilidad desconocida</string>
+    <string name="compat_incompatible">Posiblemente incompatible</string>
+
+    <!-- Device info -->
+    <string name="device_info_title">Tu dispositivo</string>
+    <string name="device_manufacturer">Fabricante</string>
+    <string name="device_model">Modelo</string>
+    <string name="device_android">Android</string>
+    <string name="device_one_ui">One UI</string>
+    <string name="one_ui_unknown">No detectado</string>
+
+    <!-- Errors -->
+    <string name="error_no_browser">No se encontró ningún navegador compatible en este dispositivo.</string>
+    <string name="error_invalid_url">Este módulo no tiene una URL de descarga válida.</string>
+
+    <!-- Navigation -->
+    <string name="nav_home">Inicio</string>
+    <string name="nav_settings">Ajustes</string>
+
+    <!-- Settings -->
+    <string name="settings_about_title">Acerca de One Lock</string>
+    <string name="settings_about_body">One Lock es un catálogo independiente que ayuda a encontrar y acceder a los módulos de Samsung Good Lock. La app no aloja, modifica ni redistribuye ningún APK: solo enlaza a páginas de descarga externas.</string>
+    <string name="settings_version">Versión</string>
+    <string name="settings_repository">Repositorio en GitHub</string>
+    <string name="settings_disclaimer_title">Aviso legal</string>
+    <string name="settings_disclaimer_body">One Lock es un proyecto independiente y no está afiliado, respaldado ni patrocinado por Samsung Electronics o Good Lock. Good Lock y sus módulos pertenecen a sus respectivos propietarios. One Lock únicamente proporciona información y enlaces externos hacia las páginas correspondientes.</string>
+    <string name="settings_compat_title">Sobre la compatibilidad</string>
+    <string name="settings_compat_body">Los estados de compatibilidad son orientativos y se basan en la versión mínima de Android indicada por cada módulo. Consulta siempre la página de descarga oficial antes de instalar cualquier módulo.</string>
+</resources>

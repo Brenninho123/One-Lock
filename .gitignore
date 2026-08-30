@@ -1,0 +1,21 @@
+*.iml
+.gradle/
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+/app/build
+/app/release
+
+# Log/OS files
+*.log
+Thumbs.db
+
+# Keystore files
+*.jks
+*.keystore
+!debug.keystore
