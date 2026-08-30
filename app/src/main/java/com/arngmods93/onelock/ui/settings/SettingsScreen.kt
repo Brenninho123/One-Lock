@@ -1,26 +1,37 @@
 package com.arngmods93.onelock.ui.settings
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.OpenInNew
+import androidx.compose.material.icons.filled.BugReport
 import androidx.compose.material.icons.filled.Code
 import androidx.compose.material.icons.filled.Gavel
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material.icons.filled.VerifiedUser
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
@@ -29,13 +40,11 @@ import com.arngmods93.onelock.R
 import com.arngmods93.onelock.utils.BrowserUtils
 
 private const val REPOSITORY_URL = "https://github.com/ArngMods93/One-Lock"
+private const val ISSUES_URL = "https://github.com/ArngMods93/One-Lock/issues"
+private const val LICENSE_URL = "https://github.com/ArngMods93/One-Lock/blob/main/LICENSE"
 
 @Composable
 fun SettingsScreen() {
-    val context = LocalContext.current
-    val invalidUrlMessage = stringResource(R.string.error_invalid_url)
-    val noBrowserMessage = stringResource(R.string.error_no_browser)
-
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -55,36 +64,7 @@ fun SettingsScreen() {
             body = stringResource(R.string.settings_about_body)
         )
 
-        Card(
-            shape = RoundedCornerShape(16.dp),
-            colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
-        ) {
-            Column(modifier = Modifier.padding(16.dp)) {
-                Text(
-                    text = "${stringResource(R.string.settings_version)}: ${BuildConfig.VERSION_NAME}",
-                    style = MaterialTheme.typography.bodyMedium,
-                    color = MaterialTheme.colorScheme.onSurface
-                )
-            }
-        }
-
-        OutlinedButton(
-            onClick = {
-                BrowserUtils.openDownloadPageWithFeedback(
-                    context = context,
-                    url = REPOSITORY_URL,
-                    invalidUrlMessage = invalidUrlMessage,
-                    noBrowserMessage = noBrowserMessage
-                )
-            },
-            modifier = Modifier.fillMaxWidth()
-        ) {
-            Icon(Icons.Filled.Code, contentDescription = null)
-            Text(
-                text = "  ${stringResource(R.string.settings_repository)}",
-                modifier = Modifier.padding(start = 4.dp)
-            )
-        }
+        VersionCard()
 
         SettingsSection(
             icon = Icons.Filled.VerifiedUser,
@@ -97,12 +77,100 @@ fun SettingsScreen() {
             title = stringResource(R.string.settings_disclaimer_title),
             body = stringResource(R.string.settings_disclaimer_body)
         )
+
+        HorizontalDivider(modifier = Modifier.padding(vertical = 4.dp))
+
+        ExternalLinkButton(
+            icon = Icons.Filled.Code,
+            label = stringResource(R.string.settings_repository),
+            url = REPOSITORY_URL
+        )
+
+        ExternalLinkButton(
+            icon = Icons.Filled.BugReport,
+            label = stringResource(R.string.settings_report_issue),
+            url = ISSUES_URL
+        )
+
+        ExternalLinkButton(
+            icon = Icons.Filled.Gavel,
+            label = stringResource(R.string.settings_license),
+            url = LICENSE_URL
+        )
+    }
+}
+
+@Composable
+private fun VersionCard() {
+    Card(
+        shape = RoundedCornerShape(16.dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
+    ) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Text(
+                text = "${stringResource(R.string.settings_version)}: ${BuildConfig.VERSION_NAME}",
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurface
+            )
+            Text(
+                text = "${stringResource(R.string.settings_build)}: ${BuildConfig.VERSION_CODE} (${BuildConfig.BUILD_TYPE})",
+                style = MaterialTheme.typography.bodySmall,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                modifier = Modifier.padding(top = 2.dp)
+            )
+        }
+    }
+}
+
+@Composable
+private fun ExternalLinkButton(
+    icon: ImageVector,
+    label: String,
+    url: String
+) {
+    val context = LocalContext.current
+    var isLoading by remember { mutableStateOf(false) }
+
+    val invalidUrlMessage = R.string.error_invalid_url
+    val blockedSchemeMessage = R.string.error_blocked_scheme
+    val noBrowserMessage = R.string.error_no_browser
+    val genericErrorMessage = R.string.error_generic
+
+    OutlinedButton(
+        onClick = {
+            isLoading = true
+            BrowserUtils.openWithFeedback(
+                context = context,
+                url = url,
+                invalidUrlMessage = invalidUrlMessage,
+                blockedSchemeMessage = blockedSchemeMessage,
+                noBrowserMessage = noBrowserMessage,
+                genericErrorMessage = genericErrorMessage
+            )
+            isLoading = false
+        },
+        modifier = Modifier.fillMaxWidth()
+    ) {
+        Row(
+            verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(8.dp)
+        ) {
+            Icon(icon, contentDescription = null)
+            Text(text = label, modifier = Modifier.padding(start = 0.dp))
+            AnimatedVisibility(visible = !isLoading) {
+                Icon(
+                    Icons.AutoMirrored.Filled.OpenInNew,
+                    contentDescription = null,
+                    modifier = Modifier.size(16.dp)
+                )
+            }
+        }
     }
 }
 
 @Composable
 private fun SettingsSection(
-    icon: androidx.compose.ui.graphics.vector.ImageVector,
+    icon: ImageVector,
     title: String,
     body: String
 ) {
